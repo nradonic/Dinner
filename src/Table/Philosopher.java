@@ -33,9 +33,9 @@ public class Philosopher implements Runnable{
 
             switch(philosopherState){
                 case thinking:{
-                    synchronized (jC) {
+                    //synchronized (jC) {
                         jC.setBackground(Color.black);
-                    }
+                    //}
                     try{Thread.sleep(100);}catch(Exception e){}
                     printThread(name + " is trying to get 2 chopsticks");
                     philosopherState = PState.gettingCS;
@@ -43,9 +43,9 @@ public class Philosopher implements Runnable{
                     break;
                 }
                 case eating:{
-                    synchronized (jC) {
+                    //synchronized (jC) {
                         jC.setBackground(Color.green);
-                    }
+                    //}
                     try{Thread.sleep(100);}catch(Exception e){}
                     releaseChopsticks();
                     philosopherState = PState.thinking;
@@ -55,9 +55,9 @@ public class Philosopher implements Runnable{
 
                 }
                 case gettingCS:{
-                   synchronized (jC) {
+                   //synchronized (jC) {
                        jC.setBackground(Color.red);
-                   }
+                   //}
                     if(getChopsticks() == true) {
                         philosopherState = PState.eating;
 
